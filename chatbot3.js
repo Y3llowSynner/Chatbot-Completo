@@ -2,6 +2,7 @@ const qrcode = require('qrcode-terminal');
 const { Client, MessageMedia } = require('whatsapp-web.js');
 const mercadopago = require('mercadopago');
 const axios = require('axios');
+const QRCode = require('qrcode'); // adicione esta linha
 const client = new Client({
     puppeteer: {
         args: ['--no-sandbox', '--disable-setuid-sandbox']
@@ -12,8 +13,15 @@ mercadopago.configure({
     access_token: 'APP_USR-7978484233362107-060410-7360acb805227d0e2b575152b8431b4f-76247140'
 });
 
-client.on('qr', qr => {
-    qrcode.generate(qr, { small: true });
+client.on('qr', async qr => {
+    qrcode.generate(qr, { small: true }); // continua mostrando no terminal
+
+    // Gera imagem base64 do QR code
+    const qrImage = await QRCode.toDataURL(qr);
+
+    // Salva a imagem localmente (Railway não permite baixar, mas você pode copiar o base64 do log)
+    console.log('QR code em base64 (cole em https://codebeautify.org/base64-to-image-converter para ver a imagem):');
+    console.log(qrImage);
 });
 client.on('ready', () => {
     console.log('Tudo certo! WhatsApp conectado.');
