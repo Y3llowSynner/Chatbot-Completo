@@ -4,14 +4,10 @@ const axios = require('axios');
 const QRCode = require('qrcode');
 const { Client, LocalAuth, MessageMedia } = require('whatsapp-web.js');
 
-// Criação correta do client:
-const client = new Client({
-    authStrategy: new LocalAuth(),
-    puppeteer: {
-        args: ['--no-sandbox', '--disable-setuid-sandbox']
-    }
+// Configuração do Mercado Pago (adicione seu access_token real)
+mercadopago.configure({
+    access_token: 'SEUTOKEN_AQUI',
 });
-
 client.on('qr', async qr => {
     qrcode.generate(qr, { small: true }); // continua mostrando no terminal
 
@@ -132,7 +128,7 @@ Sempre responda a pergunta do usuário, mesmo que de forma breve e humana.`
             },
             {
                 headers: {
-                    'Authorization': 'Bearer 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',
+                    'Authorization': 'Bearer SEU_TOKEN_OPEN',
                     'Content-Type': 'application/json'
                 }
             }
