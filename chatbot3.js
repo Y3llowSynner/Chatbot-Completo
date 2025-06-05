@@ -3,12 +3,13 @@ const { Client, MessageMedia } = require('whatsapp-web.js');
 const mercadopago = require('mercadopago');
 const axios = require('axios');
 const QRCode = require('qrcode'); // adicione esta linha
+const { Client, LocalAuth, MessageMedia } = require('whatsapp-web.js');
 const client = new Client({
+    authStrategy: new LocalAuth(),
     puppeteer: {
         args: ['--no-sandbox', '--disable-setuid-sandbox']
     }
 });
-
 mercadopago.configure({
     access_token: 'APP_USR-7978484233362107-060410-7360acb805227d0e2b575152b8431b4f-76247140'
 });
