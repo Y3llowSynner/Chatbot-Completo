@@ -2,7 +2,11 @@ const qrcode = require('qrcode-terminal');
 const { Client, MessageMedia } = require('whatsapp-web.js');
 const mercadopago = require('mercadopago');
 const axios = require('axios');
-const client = new Client();
+const client = new Client({
+    puppeteer: {
+        args: ['--no-sandbox', '--disable-setuid-sandbox']
+    }
+});
 
 mercadopago.configure({
     access_token: 'APP_USR-7978484233362107-060410-7360acb805227d0e2b575152b8431b4f-76247140'
