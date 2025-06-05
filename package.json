@@ -2,9 +2,23 @@
   "dependencies": {
     "@paypal/checkout-server-sdk": "^1.0.3",
     "axios": "^1.9.0",
-    "mercadopago": "^1.5.13",
+    "firebase": "^11.8.1",
+    "mercadopago": "^1.5.17",
     "moment-timezone": "^0.5.45",
     "qrcode-terminal": "^0.12.0",
-    "whatsapp-web.js": ""
-  }
+    "whatsapp-web.js": "^1.30.0"
+    
+  },
+  "name": "chatbot-completo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "chatbot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node chatbot3.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+  
 }
